@@ -27,24 +27,30 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const cuadricula = document.querySelector(".cuadricula");
-  const resultado = document.querySelector("#resultado");
   var cartasEscogidas = [];
   var cartasEscogidasId = [];
-  var cartasGanadas = [];
 
-  
   function creartablero() {
-   
     for (let i = 0; i < cardAdj.length; i++) {
       var carta = document.createElement("img");
 
-     
       carta.setAttribute("src", "images/reverso.png");
-     
+
       carta.setattribute("data-id", i);
-    
+
       carta.addEventListener("click", voltearcarta);
-     
+
       cuadricula.appendchild(carta);
     }
   }
+  function voltearcarta() {
+    var cardId = this.getAttribute("data-id");
+    cartasEscogidas.push(cardAdj[cardId].name);
+    cartasEscogidasId.push(cardId);
+    this.setAttribute("src", cardAdj[cardId].img);
+    if (cartasEscogidas.length === 2) {
+      setTimeout(verificarPareja, 1000);
+    }
+  }
+  creartablero();
+});
