@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "8",
       img: "img/8.jpg"
     },
+
     {
       name: "blank",
       img: "img/blank.png"
